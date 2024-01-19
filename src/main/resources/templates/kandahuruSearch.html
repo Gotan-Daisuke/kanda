@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>検索画面</title>
+</head>
+<body>
+<table border="1">
+	<thead>
+		<tr><th>商品</th><th>商品名</th><th>メーカー</th><th>金額</th><th>在庫</th></tr>
+	</thead>
+	<!--商品表示-->
+	<tbody>
+		<tr th:each="e : ${entity}" th:object="${e}" >
+	<!--		<a th:href="http://localhost/8080/merchandise${e.id}">-->
+			<td><img th:src="*{filepath}"/></td>
+			<td th:text="*{merchandise}"></td>
+			<td th:text="*{maker}"></td>
+			<td th:text="*{price}"></td>
+			<td th:text="*{stock}"></td>
+	<!--		</a>-->
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
