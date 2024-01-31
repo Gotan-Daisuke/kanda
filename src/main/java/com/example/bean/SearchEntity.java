@@ -6,6 +6,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * 検索Entityクラス
+ * @author d.gotan
+ */
 @Data
 @Entity
 @Table(name = "kandahurusearh")
