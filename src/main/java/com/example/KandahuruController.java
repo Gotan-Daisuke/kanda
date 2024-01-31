@@ -21,7 +21,7 @@ public class KandahuruController {
 	 private KandahuruService service;
 
 	/**
-	 *
+	 * 検索画面
 	 * @param model
 	 * @param form
 	 * @return kandahuruSearch
@@ -46,7 +46,7 @@ public class KandahuruController {
 		return "kandahuruSearch";
 	}
 	/**
-	 *
+	 * 商品画面
 	 * @param model
 	 * @param form
 	 * @return kandahuruMerchandise

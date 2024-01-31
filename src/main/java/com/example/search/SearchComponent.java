@@ -13,6 +13,11 @@ import com.example.bean.SearchForm;
 @Component
 public class SearchComponent {
 
+	/**
+	 * Nullチェック
+	 * @param form
+	 * @return Boolean
+	 */
 	public Boolean formIsNull(SearchForm form) {
 		return StringUtils.isBlank(form.getSerchbox())
 				&& StringUtils.isBlank(form.getPrice())
@@ -21,6 +26,11 @@ public class SearchComponent {
 
 	}
 
+	/**
+	 * priceNullチェック
+	 * @param price
+	 * @return Integer
+	 */
 	public Integer priceIsNull(String price) {
 		return StringUtils.isBlank(price) ? 0 : Integer.parseInt(price);
 
