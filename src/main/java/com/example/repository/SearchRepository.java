@@ -9,5 +9,5 @@ import com.example.bean.SearchEntity;
 
 @Repository
 public interface SearchRepository extends JpaRepository<SearchEntity, Integer>, JpaSpecificationExecutor<SearchEntity>{
-	
+
 }

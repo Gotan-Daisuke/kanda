@@ -5,15 +5,24 @@ import org.springframework.stereotype.Component;
 
 import com.example.bean.SearchForm;
 
+/**
+ * 検索機能Component
+ * @author d.gotan
+ *
+ */
 @Component
 public class SearchComponent {
-	
+
 	public Boolean formIsNull(SearchForm form) {
 		return StringUtils.isBlank(form.getSerchbox())
 				&& StringUtils.isBlank(form.getPrice())
 				&& StringUtils.isBlank(form.getTag())
 				? true : false;
-		
+
 	}
 
+	public Integer priceIsNull(String price) {
+		return StringUtils.isBlank(price) ? 0 : Integer.parseInt(price);
+
+	}
 }

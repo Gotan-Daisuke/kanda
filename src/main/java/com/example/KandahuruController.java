@@ -15,47 +15,45 @@ import com.example.service.KandahuruService;
 
 @Controller
 public class KandahuruController {
-	
+
 	//serviceクラスの呼び出し
 	 @Autowired
 	 private KandahuruService service;
-	 
+
 	/**
-	 * 
+	 *
 	 * @param model
 	 * @param form
 	 * @return kandahuruSearch
 	 */
 	@GetMapping("/form")
-	public String getSearch(Model model, 
+	public String getSearch(Model model,
 			@ModelAttribute SearchForm form) {
-		
+
         //Entity定義
         List<SearchEntity> searchEntity;
-        
+
         //nullチェック※ここ
         searchEntity = service.findlist(form);
-        
+
         SearchForm searchForm = service.form(form);
-		
+
 		//検索フォーム
 		model.addAttribute("form",searchForm);
-		
+
 		//検索結果表示（初期全件表示）
 		model.addAttribute("entity",searchEntity);
 		return "kandahuruSearch";
 	}
-	
-//	/*	検索画面
-//		検索結果表示
-//		
-//		return kandahuruSearch.html
-//	*/	@PostMapping("/form")
-//	public String postName(Model model,
-//			@ModelAttribute SearchFrom form){
-//		List<SearchEntity> searchEntity = service.findByMerchandiseOrMaker(form.getSerchbox());
-//		model.addAttribute("entity",searchEntity);
-//		return "kandahuruSearch";
-//	}
+	/**
+	 *
+	 * @param model
+	 * @param form
+	 * @return kandahuruMerchandise
+	 */
+	@GetMapping("/merchandise")
+	public String getMerchandise(Model model) {
+		return "kandahuruMerchandise";
+	}
 
 }
