@@ -2,10 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>商品画面</title>
 </head>
 <body>
-	<h1>helloworld</h1>
-
+	<!--検索画面に戻る-->
+	<button onclick="location.href='http://localhost:8080/form'">
+		<img src="/img/title.jpg" alt="Button Image" style="height: 100%;">
+	</button>
+	<!--商品情報-->
+	<div th:object="${sentity}">
+		<ul style="list-style: none;">
+			<!--商品名-->
+			<li>商品名：<span th:text="*{merchandise}"></span></li>
+			<!--メーカー-->
+			<li>メーカー：<span th:text="*{maker}"></span></li>
+			<!--金額-->
+			<li>金額：<span th:text="*{price}"></span></li>
+			<!--在庫-->
+			<li>在庫：<span th:text="*{stock}"></span></li>
+		</ul>
+		<!--購入数-->
+	購入数：<select>
+		<option	th:each="i : *{#numbers.sequence(0,stock)}" th:value="${i}" th:text="${i}"></option>
+		</select>
+	</div>
+	
+	<ul style="list-style: none;" th:object="${mentity}">
+		<!--商品画像-->
+		<li><img th:src="*{mfilepath1}"/></li>
+		<li><img th:src="*{mfilepath2}"/></li>
+		<li><img th:src="*{mfilepath3}"/></li>
+		<li><img th:src="*{mfilepath4}"/></li>
+		<li><img th:src="*{mfilepath5}"/></li>
+	</ul>	
 </body>
 </html>

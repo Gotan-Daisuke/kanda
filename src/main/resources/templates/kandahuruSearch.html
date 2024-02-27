@@ -49,8 +49,7 @@
 		</thead>
 		<tbody th:each="e : ${entity}" th:object="${e}" >
 			<span>
-<!--				<tr th:data-href="|/merchandise?id=*{id}|">-->
-				<tr data-href="http://localhost:8080/merchandise">
+				<tr th:data-href="'http://localhost:8080/merchandise?id=' + *{id}">
 					<td><img th:src="*{filepath}"/></td>
 					<td th:text="*{merchandise}"></td>
 					<td th:text="*{maker}"></td>
