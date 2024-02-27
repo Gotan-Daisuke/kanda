@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controller;
 
 
 import java.util.List;
@@ -33,9 +33,9 @@ public class KandahuruController {
         //Entity定義
         List<SearchEntity> searchEntity;
 
-        //nullチェック※ここ
+        //nullチェック
         searchEntity = service.findlist(form);
-
+        
         SearchForm searchForm = service.form(form);
 
 		//検索フォーム
@@ -45,15 +45,7 @@ public class KandahuruController {
 		model.addAttribute("entity",searchEntity);
 		return "kandahuruSearch";
 	}
-	/**
-	 * 商品画面
-	 * @param model
-	 * @param form
-	 * @return kandahuruMerchandise
-	 */
-	@GetMapping("/merchandise")
-	public String getMerchandise(Model model) {
-		return "kandahuruMerchandise";
-	}
+	
+
 
 }
