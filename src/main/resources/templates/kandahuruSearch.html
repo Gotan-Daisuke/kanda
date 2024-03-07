@@ -18,7 +18,7 @@
 		<p><input type="text" name="serchbox" th:value="${form.serchbox}"></p>
 		<!--値段-->
 		<select name="price" th:value=${form.price}>
-			<option value="" th:selected="${form.price}==null">上限なし</option>
+			<option value=0 th:selected="${form.price}==null">上限なし</option>
 			<option value=300 th:selected="${form.price}==300">300</option>
 			<option value=500 th:selected="${form.price}==500">500</option>
 			<option value=1000 th:selected="${form.price}==1000">1000</option>

@@ -76,9 +76,9 @@ public class KandahuruService {
 
 		SearchSpecification<SearchEntity> spec = new SearchSpecification<>();
 	    return searchRepository.findAll(
-	    		Specification.where(spec.searchSpec(form.getSerchbox())
-	    				.and(spec.priceSpec(component.priceIsNull(form.getPrice())))
-	    				.and(spec.tagSpec(form.getTag()))));
+	    		Specification.where(spec.priceSpec(component.priceIsNull(form.getPrice())))
+	    				.and(spec.tagSpec(form.getTag()))
+	    				.and(spec.searchSpec(form.getSerchbox())));
 	}
 
 	/**

@@ -10,23 +10,29 @@
 		<img src="/img/title.jpg" alt="Button Image" style="height: 100%;">
 	</button>
 	<!--商品情報-->
-	<div th:object="${sentity}">
-		<ul style="list-style: none;">
-			<!--商品名-->
-			<li>商品名：<span th:text="*{merchandise}"></span></li>
-			<!--メーカー-->
-			<li>メーカー：<span th:text="*{maker}"></span></li>
-			<!--金額-->
-			<li>金額：<span th:text="*{price}"></span></li>
-			<!--在庫-->
-			<li>在庫：<span th:text="*{stock}"></span></li>
-		</ul>
-		<!--購入数-->
-	購入数：<select>
-		<option	th:each="i : *{#numbers.sequence(0,stock)}" th:value="${i}" th:text="${i}"></option>
-		</select>
-	</div>
-	
+	<form method="post" th:action="@{/merchandise}" th:object="${MerchandiseForm}">
+		<div th:object="${sentity}">
+			<ul style="list-style: none;">
+				<!--商品名-->
+				<li>商品名：<span th:text="*{merchandise}"></span></li>
+				<!--メーカー-->
+				<li>メーカー：<span th:text="*{maker}"></span></li>
+				<!--金額-->
+				<li>金額：<span th:text="*{price}"></span></li>
+				<!--在庫-->
+				<li>在庫：<span th:text="*{stock}"></span></li>
+			</ul>
+			<input type="hidden" name="merchandise" th:value="*{merchandise}"/>
+			<input type="hidden" name="maker" th:value="*{maker}"/>
+			<input type="hidden" name="price" th:value="*{price}"/>
+			<!--購入数-->
+			購入数：
+			<select name="need">
+				<option	th:each="i : *{#numbers.sequence(0,stock)}" th:value="${i}" th:text="${i}"></option>
+			</select>
+			 <input type="submit" value="カートに入れる">
+		</div>
+	</form>
 	<ul style="list-style: none;" th:object="${mentity}">
 		<!--商品画像-->
 		<li><img th:src="*{mfilepath1}"/></li>
