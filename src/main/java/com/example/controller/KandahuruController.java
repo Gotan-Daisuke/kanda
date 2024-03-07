@@ -45,7 +45,4 @@ public class KandahuruController {
 		model.addAttribute("entity",searchEntity);
 		return "kandahuruSearch";
 	}
-	
-
-
 }

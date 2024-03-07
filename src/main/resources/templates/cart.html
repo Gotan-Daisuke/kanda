@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>商品カート</title>
+</head>
+<body>
+	<!--検索結果-->
+	<table border="1">
+		<tr>
+			<th>商品名</th>
+			<th>メーカー</th>
+			<th>金額</th>
+			<th>数量</th>
+		</tr>
+		<tr>
+			<td th:text="${merchandiseSession.getMerchandise}"></td>
+			<td th:text="${merchandiseSession.getMaker}"></td>
+			<td th:text="${merchandiseSession.getPrice}"></td>
+			<td th:text="${merchandiseSession.getNeed}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

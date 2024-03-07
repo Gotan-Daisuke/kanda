@@ -1,7 +1,5 @@
 package com.example.repository;
 
-import java.util.Objects;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -45,7 +43,11 @@ public class SearchSpecification<SearchEntity> {
 	     * @return
 	     */
 	    public Specification<SearchEntity> priceSpec(Integer price) {
-	    	return price == 0 ? null : (root, query, builder) -> {
+	    	return price == 0 ?  
+	    			(root, query, builder) -> {
+	            return builder.greaterThanOrEqualTo(root.get("price"), price);
+	            }
+            		: (root, query, builder) -> {
 	            return builder.lessThanOrEqualTo(root.get("price"), price);
 	        };
 	   }
@@ -57,7 +59,7 @@ public class SearchSpecification<SearchEntity> {
 	     * @return
 	     */
 	    public Specification<SearchEntity> tagSpec(String tag) {
-	    	return Objects.isNull(tag) ? null : (root, query, builder) -> {
+	    	return StringUtils.isBlank(tag) ? null : (root, query, builder) -> {
 	    		Predicate[] predicates = {
 		            builder.equal(root.get("merchandisetag1"), tag),
 		            builder.equal(root.get("merchandisetag2"), tag)
